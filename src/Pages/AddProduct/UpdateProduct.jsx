@@ -1,17 +1,18 @@
 import React from 'react';
 
-const Addproduct = () => {
+const UpdateProduct = () => {
     const handleSubmit=e=>{
-        
+
     }
+
     return (
         <>
-        <div className="grid grid-cols-1 my-20 gap-8 px-5 max-w-6xl mx-auto justify-center items-center" data-aos="fade-up"
+            <div className="grid grid-cols-1 my-20 gap-8 px-5 max-w-6xl mx-auto justify-center items-center" data-aos="fade-up"
      data-aos-duration="3000">
          
         <div className="">
           <h2 className="mb-4 sm:text-4xl text-3xl tracking-tight font-extrabold text-center ">
-            Let's Add Some New Product
+             Update 
           </h2>
           <p className="font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">
             Feel Free To Contact Us NOW! Plan Your Event With Our Premium
@@ -173,9 +174,8 @@ const Addproduct = () => {
           </div>
         </div>
       </div>
-            
         </>
     );
 };
 
-export default Addproduct;
+export default UpdateProduct;
