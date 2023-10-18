@@ -2,7 +2,17 @@ import React from 'react';
 
 const Addproduct = () => {
     const handleSubmit=e=>{
-        
+        e.preventDefault()
+        const productName=e.target.productName.value;
+        const price=e.target.price.value;
+        const ProductType=e.target.type.value;
+        const image=e.target.image.value;
+        const rating=e.target.rating.value;
+        const brand=e.target.brand.value;
+        const detail=e.target.detail.value;
+        const newProduct={productName,price,ProductType,image,rating,brand,detail}
+        console.log(newProduct);
+        console.log(productName,price,ProductType,image,rating,brand,detail);
     }
     return (
         <>
@@ -126,19 +136,20 @@ const Addproduct = () => {
                   </label>
                   <select
                     id="countries"
+                    name='brand'
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   >
                     <option selected>Choose Your Product Brand</option>
-                    <option value="apple">Apple</option>
-                    <option value="samsung">Samsung</option>
-                    <option value="xiomi">
-                      Xiomi
+                    <option value="Apple">Apple</option>
+                    <option value="Samsung">Samsung</option>
+                    <option value="xiaomi">
+                      Xiaomi
                     </option>
-                    <option value="giggabite">
+                    <option value="Giggabite">
                       Giggabite
                     </option>
-                    <option value="asus">Asus</option>
-                    <option value="sony">Sony</option>
+                    <option value="Asus">Asus</option>
+                    <option value="Sony">Sony</option>
                      
                      
                   </select>
@@ -159,6 +170,7 @@ const Addproduct = () => {
                     <textarea
                       id="message"
                       rows="6"
+                      name='detail'
                       className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                       placeholder="Enter your product detail . Word limit 200 word "
                     ></textarea>

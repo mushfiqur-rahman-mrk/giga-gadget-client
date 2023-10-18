@@ -1,10 +1,23 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const ThemeSwitch = () => {
   const [isChecked, setIsChecked] = useState(false)
+  const [theme,setTheme]=useState('light')
+  useEffect(()=>{
+    if(theme === 'dark'){
+      document.documentElement.classList.add('dark')
+    }else{
+      document.documentElement.classList.add('light')
+    }
+  },[theme])
+  const handleThemeSwitch=()=>{
+    setTheme(theme === "dark" ? "light":"dark")
+    // console.log('btn clicked');
+  }
 
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked)
+    // console.log('btn clicked');
   }
 
   return (
@@ -13,13 +26,11 @@ const ThemeSwitch = () => {
         <input
           type='checkbox'
           checked={isChecked}
-          onChange={handleCheckboxChange}
+          onChange={handleThemeSwitch}
           className='sr-only'
         />
-        <span className='mr-[18px] text-sm font-medium text-black'>
-          Switch Version
-        </span>
-        <div className='shadow-card flex h-[46px] w-[82px] items-center justify-center rounded-md bg-white'>
+         
+        <div className='shadow-card border flex h-[46px] w-[82px] items-center justify-center rounded-md bg-white'>
           <span
             className={`flex h-9 w-9 items-center justify-center rounded ${
               !isChecked ? 'bg-primary text-white' : 'text-body-color'
@@ -69,6 +80,7 @@ const ThemeSwitch = () => {
           </span>
         </div>
       </label>
+      <button onClick={handleThemeSwitch} className='btn'>theme</button>
     </>
   )
 }

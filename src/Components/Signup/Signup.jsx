@@ -15,6 +15,8 @@ const Signup = () => {
         Create Your Account Now!
         <div className='w-40 h-20 bg-regal-blue'></div>
         <div className='w-40 h-20 bg-regal-black'></div>
+        <div className='w-40 h-20 bg-regal-deep'></div>
+        <div className='w-40 h-20 bg-regal-deeps'></div>
       </h1>
       <div className="grid grid-cols-1 lg:grid-cols-4 px-5 max-w-6xl mx-auto mb-20">
         <div className="col-span-2 rounded-xl hidden lg:block">
@@ -115,8 +117,9 @@ const Signup = () => {
                   </div>
                   <button
                     type="submit"
-                    className="bg-gradient-to-r from-regal-blue to-regal-black px-4 py-2 rounded-md font-semibold transition duration-150 text-white hover:bg-red-500 hover:text-black w-full"
+                    className=" bg-regal-black px-4 py-2 rounded-md font-semibold transition duration-150 text-white hover:bg-regal-blue hover:text-black w-full"
                   >
+                     
                     Create my account
                   </button>
                   <p className="text-sm font-light text-gray-500 dark:text-gray-400">
