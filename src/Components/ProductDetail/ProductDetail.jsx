@@ -7,6 +7,21 @@ const ProductDetail = () => {
   const data=useLoaderData()
   const {_id,brand,detail,image,price,productName,rating}=data || {}
   console.log(brand);
+
+  const addtoCart=()=>{
+      // send data to server
+      fetch('http://localhost:5000/cart-item',{
+        method:'POST',
+        headers:{
+          'content-type':'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+  }
+
+
+
+
     return (
         <div>
             <section className="text-gray-600 body-font overflow-hidden">
@@ -56,7 +71,7 @@ const ProductDetail = () => {
         <p className="title-font font-medium text-2xl text-gray-900">$ {price}</p>
         <div className="flex">
           
-          <button className="w-full text-center text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Add to Cart</button>
+          <button onClick={addtoCart} className="w-full text-center text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Add to Cart</button>
         </div>
       </div>
     </div>

@@ -30,12 +30,13 @@ import PrivetRoute from "./PrivetRoute";
         },
         {
           path:'/my-cart',
-          element: <PrivetRoute><Mycart></Mycart></PrivetRoute>
+          element: <PrivetRoute><Mycart></Mycart></PrivetRoute>,
+          loader: ()=>fetch('http://localhost:5000/cart-item')
         },
         {
           path:'/update-product/:id',
           element: <PrivetRoute><UpdateProduct></UpdateProduct></PrivetRoute>,
-          loader: ({params})=>fetch(`http://localhost:5000/products/${params.id}`)
+          loader: ({params}) => fetch(`http://localhost:5000/products/${params.id}`)
         },
         {
           path: '/brand-detail/:brand',

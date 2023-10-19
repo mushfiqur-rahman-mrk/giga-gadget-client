@@ -6,27 +6,29 @@ const UpdateProduct = () => {
   console.log(updateData);
   const {productName,price,productType,image,rating,brand,detail,_id}= updateData || {}
   console.log(_id);
+
     const handleSubmit=e=>{
       e.preventDefault()
       const productName=e.target.productName.value;
-        const price=e.target.price.value;
-        const productType=e.target.type.value;
-        const image=e.target.image.value;
-        const rating=e.target.rating.value;
-        const brand=e.target.brand.value;
-        const detail=e.target.detail.value;
-        const updatedProduct={productName,price,productType,image,rating,brand,detail}
-        fetch(`http://localhost:5000/products/${_id}` ,{
-            method: 'PUT',
-            headers:{
-              'content-type':'application/json'
-            },
-            body: JSON.stringify(updatedProduct)
-        })
-        .then(res=>res.json())
-        .then(data=>{
-          console.log(data);
-        })
+      const price=e.target.price.value;
+      const productType=e.target.type.value;
+      const image=e.target.image.value;
+      const rating=e.target.rating.value;
+      const brand=e.target.brand.value;
+      const detail=e.target.detail.value;
+      const updatedProduct={productName,price,productType,image,rating,brand,detail}
+      // send data to backend
+      fetch(`http://localhost:5000/products/${_id}`,{
+        method: 'PUT',
+        headers:{
+          'content-type':'application/json'
+        },
+        body: JSON.stringify(updatedProduct)
+      })
+      .then(res=>res.json())
+      .then(data=>{
+        console.log(data);
+      })
 
 
     }
