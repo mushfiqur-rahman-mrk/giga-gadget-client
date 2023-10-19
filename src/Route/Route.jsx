@@ -12,6 +12,7 @@ import Mycart from "../Pages/Mycart/Mycart";
 import UpdateProduct from "../Pages/AddProduct/UpdateProduct";
 import BrandDetail from "../Components/BrandDetail/BrandDetail";
 import ProductDetail from "../Components/ProductDetail/ProductDetail";
+import PrivetRoute from "./PrivetRoute";
    
   const route = createBrowserRouter([
     {
@@ -25,15 +26,15 @@ import ProductDetail from "../Components/ProductDetail/ProductDetail";
         },
         {
           path:'/add-product',
-          element: <Addproduct></Addproduct>
+          element: <PrivetRoute><Addproduct></Addproduct></PrivetRoute>
         },
         {
           path:'/my-cart',
-          element:<Mycart></Mycart>
+          element: <PrivetRoute><Mycart></Mycart></PrivetRoute>
         },
         {
           path:'/update-product/:id',
-          element:<UpdateProduct></UpdateProduct>,
+          element: <PrivetRoute><UpdateProduct></UpdateProduct></PrivetRoute>,
           loader: ({params})=>fetch(`http://localhost:5000/products/${params.id}`)
         },
         {
@@ -44,7 +45,7 @@ import ProductDetail from "../Components/ProductDetail/ProductDetail";
         },
         {
           path: '/product-detail/:id',
-          element: <ProductDetail></ProductDetail>,
+          element: <PrivetRoute><ProductDetail></ProductDetail></PrivetRoute>,
           loader:({params})=>fetch(`http://localhost:5000/products/${params.id}`)
         },
         

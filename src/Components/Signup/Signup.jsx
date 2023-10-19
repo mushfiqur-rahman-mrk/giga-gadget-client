@@ -1,10 +1,11 @@
  
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc"
 import { useContext, useState } from 'react';
 import regImage from "/src/assets/signup.jpg"
 import { AuthContext } from '../../Authentication/Auth';
+import swal from 'sweetalert';
 
 
 const Signup = () => {
@@ -12,6 +13,8 @@ const Signup = () => {
     const [error,setError]=useState('')
     const {emailSignUp,googleSignIn,user}=useContext(AuthContext)
     console.log(user);
+    const location = useLocation();
+    const navigate=useNavigate()
     const handleSignup=e=>{
       e.preventDefault()
       const name= e.target.name.value;
@@ -19,12 +22,25 @@ const Signup = () => {
       const email= e.target.email.value;
       const password= e.target.password.value;
       console.log(name,photo,email,password);
+      var specialCarrecter= /[!@#$%^&*()_+{}:;<;>,.?=\\|]/;
+      if(password.length<6){
+      setError('Password must be atleast 6 carrecter or long ')
+      return
+      }
+      else if(!/[A-Z]/.test(password)){
+      setError('Password should have atleast one capital letter')
+      return
+      }
+      else if(!specialCarrecter.test(password)){
+      setError('Password should have atleast one special carrecter like !@#$%^&*()_+{}:;<;>,.?=\\|')
+      return
+      }
       emailSignUp(email,password)
       .then(result=>{
         console.log(result.user);
-        
-        alert('user created successfully')
         e.target.reset()
+        swal("Account Created successfully", "", "success");
+        navigate(location?.state ? location.state : "/");
       })
       .catch(error=>{
         console.log(error.message);
@@ -36,6 +52,8 @@ const Signup = () => {
       googleSignIn()
       .then(result=>{
         console.log(result.user);
+        swal("Account Created successfully", "", "success");
+        navigate(location?.state ? location.state : "/");
       })
       .catch(error=>{
         console.log(error.message);
@@ -46,10 +64,6 @@ const Signup = () => {
         <div>
             <h1 className="text-2xl text-center font-bold my-10">
         Create Your Account Now!
-        <div className='w-40 h-20 bg-regal-blue'></div>
-        <div className='w-40 h-20 bg-regal-black'></div>
-        <div className='w-40 h-20 bg-regal-deep'></div>
-        <div className='w-40 h-20 bg-regal-deeps'></div>
       </h1>
       <div className="grid grid-cols-1 lg:grid-cols-4 px-5 max-w-6xl mx-auto mb-20">
         <div className="col-span-2 rounded-xl hidden lg:block">

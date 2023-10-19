@@ -1,6 +1,6 @@
-import  { createContext, useState } from 'react';
+import  { createContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
+import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
 import auth from './firebase.config';
 
 
@@ -8,6 +8,7 @@ export const AuthContext=createContext(null)
 
 const Auth = ({children}) => {
     const [user,setUser]=useState(null)
+    const [loading,setLoading]=useState(true)
     // create user with emai and password
     const emailSignUp=(email, password)=>{
         return    createUserWithEmailAndPassword(auth,email, password)
@@ -21,7 +22,25 @@ const Auth = ({children}) => {
     const googleSignIn=()=>{
         return signInWithPopup(auth,googleProvider)
     }
-    const authinfo={user,emailSignUp,emailLogIn,googleSignIn}
+    // log out
+    const logOut=()=>{
+        setLoading(true)
+        return signOut(auth)
+    }
+
+    // ovservation on user activity
+    useEffect(()=>{
+        const unSubscribe=onAuthStateChanged(auth, currentUser=>{
+            setUser(currentUser)
+            setLoading(false)
+        })
+        return ()=>{
+            unSubscribe()
+        }
+        },[])
+
+
+    const authinfo={user,emailSignUp,emailLogIn,googleSignIn,logOut,loading}
     return (
         <AuthContext.Provider value={authinfo}>
             {children}

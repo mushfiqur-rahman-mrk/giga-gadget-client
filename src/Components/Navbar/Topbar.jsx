@@ -1,9 +1,22 @@
-import React from "react";
+import  { useContext } from "react";
 import ThemeSwitch from "./ThemeSwitch";
 import logo from '/src/assets/logo.jpg'
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
+import { AuthContext } from "../../Authentication/Auth";
+import swal from "sweetalert";
 
 const Topbar = () => {
+  const {user,logOut}=useContext(AuthContext)
+  console.log(user);
+  
+  const handleLogout=()=>{
+    logOut()
+    .then(()=>{
+      console.log('logged out successfully');
+      swal("Logged out successfully", "", "success");
+    })
+    .catch(error=>console.log(error))
+  }
   return (
     <>
       <div className="hidden sm:block">
@@ -27,20 +40,16 @@ const Topbar = () => {
         <div className="navbar-end">
         <ThemeSwitch></ThemeSwitch>
           <div className="dropdown dropdown-bottom dropdown-end">
+            {
+              user ? <div onClick={handleLogout}>
+              <button className="btn ml-2">Log out</button>
+            </div>
+            :
             <Link to={'/signup'}>
-              <button className="btn">Sign up</button>
+              <button className="btn ml-2">Log in</button>
             </Link>
-            <ul
-              tabIndex={0}
-              className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
-            >
-              <li>
-                <a>Item 1</a>
-              </li>
-              <li>
-                <a>Item 2</a>
-              </li>
-            </ul>
+
+            }
           </div>
           
         </div>

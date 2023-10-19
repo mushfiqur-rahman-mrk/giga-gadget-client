@@ -1,15 +1,20 @@
 import React, { useContext, useState } from "react";
 import { AiFillAlert, AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logImg from '/src/assets/login.jpg'
 import { AuthContext } from "../../Authentication/Auth";
+import swal from "sweetalert";
 
 
 const Login = () => {
     const [show,setShow]=useState(false)
     const [error,setError]=useState('')
     const {googleSignIn,emailLogIn}=useContext(AuthContext)
+    const location = useLocation();
+    const navigate = useNavigate();
+
+
     const handleSignin=e=>{
       e.preventDefault()
       const email=e.target.email.value;
@@ -18,8 +23,11 @@ const Login = () => {
       emailLogIn(email,password)
       .then(result=>{
         console.log(result.user);
-        alert('loged in successfully')
-        e.target.reset()
+        swal("Logged in successfully", "", "success");
+        // toast("Wow so easy!")
+        navigate(location?.state ? location.state : "/");
+        e.target.reset();
+
       })
       .catch(error=>{
         console.log(error.message);
