@@ -1,33 +1,33 @@
 [
     {
         "id": 1,
-        "brand_name": "Appple",
-        "image":"https://i.ibb.co/d7KHhrk/apple.png"
+        "brand_name": "Apple",
+        "image":"https://i.ibb.co/CV4FKxm/apple-logo-1988.png"
     },
     {
         "id": 2,
         "brand_name": "Samsung",
-        "image":"https://i.ibb.co/d7KHhrk/apple.png"
+        "image":"https://i.ibb.co/4NQ3M3Z/samsung-logo.jpg"
     },
     {
         "id": 3,
         "brand_name": "Xiaomi",
-        "image":"https://i.ibb.co/d7KHhrk/apple.png"
+        "image":"https://i.ibb.co/MPvDyTj/xiaomi.jpg"
     },
     {
         "id": 4,
-        "brand_name": "Gibabite",
-        "image":"https://i.ibb.co/d7KHhrk/apple.png"
+        "brand_name": "Gigabite",
+        "image":"https://i.ibb.co/VM2vBy9/gigbite.jpg"
     },
     {
         "id": 5,
-        "brand_name": "Sony",
-        "image":"https://i.ibb.co/d7KHhrk/apple.png"
+        "brand_name": "Asus",
+        "image":"https://i.ibb.co/tPZrSGm/asus.jpg"
     },
     {
         "id": 6,
-        "brand_name": "Appple",
-        "image":"https://i.ibb.co/d7KHhrk/apple.png"
+        "brand_name": "Sony",
+        "image":"https://i.ibb.co/r22rcb5/sony.jpg"
     }
      
 ]

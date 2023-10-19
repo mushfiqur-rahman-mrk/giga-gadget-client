@@ -32,17 +32,22 @@ import ProductDetail from "../Components/ProductDetail/ProductDetail";
           element:<Mycart></Mycart>
         },
         {
-          path:'/update-product',
-          element:<UpdateProduct></UpdateProduct>
+          path:'/update-product/:id',
+          element:<UpdateProduct></UpdateProduct>,
+          loader: ({params})=>fetch(`http://localhost:5000/products/${params.id}`)
         },
         {
-          path: '/brand-detail',
-          element: <BrandDetail></BrandDetail>
+          path: '/brand-detail/:brand',
+          element: <BrandDetail></BrandDetail>,
+          loader: ({params})=>fetch(`http://localhost:5000/products`)
+          
         },
         {
-          path: '/product-detail',
-          element: <ProductDetail></ProductDetail>
+          path: '/product-detail/:id',
+          element: <ProductDetail></ProductDetail>,
+          loader:({params})=>fetch(`http://localhost:5000/products/${params.id}`)
         },
+        
         {
           path:'/signup',
           element: <Signup></Signup>

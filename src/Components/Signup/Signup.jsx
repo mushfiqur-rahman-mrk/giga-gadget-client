@@ -2,12 +2,45 @@
 import { Link } from 'react-router-dom';
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc"
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import regImage from "/src/assets/signup.jpg"
+import { AuthContext } from '../../Authentication/Auth';
 
 
 const Signup = () => {
     const [show,setShow]=useState(false)
+    const [error,setError]=useState('')
+    const {emailSignUp,googleSignIn,user}=useContext(AuthContext)
+    console.log(user);
+    const handleSignup=e=>{
+      e.preventDefault()
+      const name= e.target.name.value;
+      const photo= e.target.photo.value;
+      const email= e.target.email.value;
+      const password= e.target.password.value;
+      console.log(name,photo,email,password);
+      emailSignUp(email,password)
+      .then(result=>{
+        console.log(result.user);
+        
+        alert('user created successfully')
+        e.target.reset()
+      })
+      .catch(error=>{
+        console.log(error.message);
+        setError(error.message)
+      })
+    }
+
+    const handleGoogleSignin=()=>{
+      googleSignIn()
+      .then(result=>{
+        console.log(result.user);
+      })
+      .catch(error=>{
+        console.log(error.message);
+      })
+    }
 
     return (
         <div>
@@ -27,7 +60,7 @@ const Signup = () => {
           {/* google login */}
           <div className="flex flex-col gap-5 items-center justify-center">
             <div>
-              <button className="btn mr-2"  >
+              <button onClick={handleGoogleSignin} className="btn mr-2"  >
                 <FcGoogle className="text-2xl"></FcGoogle>Continue With Google
               </button>
                
@@ -42,13 +75,13 @@ const Signup = () => {
           <div className="px-6 py-2 lg:py-0">
             <div className="">
               <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-                <form
+                <form 
                   className="space-y-4 md:space-y-6"
-                   
+                  onSubmit={handleSignup}
                 >
                   <div>
                     <label
-                      for="name"
+                       
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >
                       Your Name
@@ -64,14 +97,14 @@ const Signup = () => {
                   </div>
                   <div>
                     <label
-                      for="text"
+                       
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >
                       Your photo url
                     </label>
                     <input
                       type="text"
-                      name="text"
+                      name="photo"
                       id="photurl"
                       className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="Your photo url"
@@ -80,7 +113,7 @@ const Signup = () => {
                   </div>
                   <div>
                     <label
-                      for="email"
+                       
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >
                       Your email
@@ -96,7 +129,7 @@ const Signup = () => {
                   </div>
                   <div className="relative">
                     <label
-                      for="password"
+                       
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >
                       Password
@@ -133,11 +166,11 @@ const Signup = () => {
                     </Link>
                   </p>
                 </form>
-                {/* {error && (
+                {error && (
                   <p className="bg-red-500 py-1 rounded-lg px-3 text-white">
                     {error}
                   </p>
-                )} */}
+                )}
               </div>
             </div>
           </div>

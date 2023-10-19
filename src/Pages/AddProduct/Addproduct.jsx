@@ -5,14 +5,27 @@ const Addproduct = () => {
         e.preventDefault()
         const productName=e.target.productName.value;
         const price=e.target.price.value;
-        const ProductType=e.target.type.value;
+        const productType=e.target.type.value;
         const image=e.target.image.value;
         const rating=e.target.rating.value;
         const brand=e.target.brand.value;
         const detail=e.target.detail.value;
-        const newProduct={productName,price,ProductType,image,rating,brand,detail}
+        const newProduct={productName,price,productType,image,rating,brand,detail}
         console.log(newProduct);
-        console.log(productName,price,ProductType,image,rating,brand,detail);
+        console.log(productName,price,productType,image,rating,brand,detail);
+        fetch('http://localhost:5000/products',{
+            method: 'POST',
+            headers:{
+              'content-type':'application/json'
+            },
+            body: JSON.stringify(newProduct)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+          console.log(data);
+          alert('product added successfully')
+          e.target.reset()
+        })
     }
     return (
         <>
@@ -34,7 +47,7 @@ const Addproduct = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
                   <div>
                     <label
-                      for="subject"
+                       
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                     >
                       Product Name
@@ -71,7 +84,7 @@ const Addproduct = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
                   <div>
                     <label
-                      for="subject"
+                       
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                     >
                       Product type
@@ -88,7 +101,7 @@ const Addproduct = () => {
 
                   <div>
                     <label
-                      for="email"
+                       
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                     >
                       Product image URL
@@ -108,7 +121,7 @@ const Addproduct = () => {
                   <div className="grid grid-cols-1 gap-10">
                   <div>
                     <label
-                      for="subject"
+                      
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                     >
                       Product Rating
@@ -142,11 +155,11 @@ const Addproduct = () => {
                     <option selected>Choose Your Product Brand</option>
                     <option value="Apple">Apple</option>
                     <option value="Samsung">Samsung</option>
-                    <option value="xiaomi">
+                    <option value="Xiaomi">
                       Xiaomi
                     </option>
-                    <option value="Giggabite">
-                      Giggabite
+                    <option value="Gigabite">
+                      Gigabite
                     </option>
                     <option value="Asus">Asus</option>
                     <option value="Sony">Sony</option>
@@ -162,7 +175,7 @@ const Addproduct = () => {
 
                   <div className="sm:col-span-2">
                     <label
-                      for="message"
+                      
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
                     >
                       Product Detail

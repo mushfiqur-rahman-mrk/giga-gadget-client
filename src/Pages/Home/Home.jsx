@@ -5,16 +5,22 @@ import OurApp from '../../Components/OurApp/OurApp';
 import Banner from '../../Components/Banner/Banner';
 import Special from '../../Components/Special/Special';
 import BrandCategory from '../../Components/BrandCategory/BrandCategory';
+import Featured from '../../Components/Featured/Featured';
+import Slider from '../../Components/Banner/Slider';
 
 const Home = () => {
     return (
         <>
-             
-               
-            <Banner></Banner>
+            <div className='dark:bg-slate-500'>
+            <Slider></Slider>
             <Special></Special>
             <BrandCategory></BrandCategory>
-            <OurApp></OurApp>
+            <Featured></Featured>
+            <OurApp></OurApp>    
+                
+            </div> 
+               
+            
         </>
     );
 };

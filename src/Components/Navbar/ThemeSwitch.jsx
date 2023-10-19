@@ -1,23 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import  {  useState } from 'react'
 
 const ThemeSwitch = () => {
   const [isChecked, setIsChecked] = useState(false)
-  const [theme,setTheme]=useState('light')
-  useEffect(()=>{
-    if(theme === 'dark'){
-      document.documentElement.classList.add('dark')
-    }else{
-      document.documentElement.classList.add('light')
-    }
-  },[theme])
-  const handleThemeSwitch=()=>{
-    setTheme(theme === "dark" ? "light":"dark")
-    // console.log('btn clicked');
-  }
+   
 
-  const handleCheckboxChange = () => {
+  const handleThemeSwitch = () => {
+    document.documentElement.classList.toggle('dark')
     setIsChecked(!isChecked)
-    // console.log('btn clicked');
+     
   }
 
   return (
@@ -80,7 +70,7 @@ const ThemeSwitch = () => {
           </span>
         </div>
       </label>
-      <button onClick={handleThemeSwitch} className='btn'>theme</button>
+       
     </>
   )
 }

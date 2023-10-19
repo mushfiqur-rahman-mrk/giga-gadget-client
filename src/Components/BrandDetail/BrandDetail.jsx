@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 // import Card from "../BrandCategory/Card";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
+import BrandDetailcard from "./BrandDetailcard";
 
 const BrandDetail = () => {
+  const [category,setCategory]=useState();
+  const params= useParams()
+  // const brands=params.brand
+  const data=useLoaderData()
+  console.log(data);
+  // const filteredItems = items.filter(item => item.category === filterCategory);
+  const brandData=data.filter(item=> item.brand === params.brand )
+console.log(brandData);
   return (
     <>
-      <div className="carousel w-full">
+    <div>
+    <div className="carousel w-full">
         <div id="item1" className="carousel-item w-full">
            
           <div className="bg-cyan-500 w-full h-[30vh]"></div>
@@ -43,35 +53,22 @@ const BrandDetail = () => {
           4
         </a>
       </div>
+    </div>
+
+
 
       <div>
         <h1 className="text-center font-extrabold text-2xl">Brand Name</h1>
         <hr className="w-20 h-1 bg-black mx-auto mt-2 rounded-full"></hr>
 
-        <div className="my-10">
-          <div className="card card-compact w-96 bg-base-100 shadow-xl">
-            <figure>
-              <img
-                src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-                alt="Shoes"
-              />
-            </figure>
-            <div className="card-body">
-              <p className="">Product type</p>
-              <h2 className="card-title">Product Name</h2>
-              <p>Rateing</p>
-              <p>Price</p>
-              <div className="card-actions justify-center">
-                <Link to={'/product-detail'}>
-                    <button className="btn btn-primary">Show Detail</button>
-                </Link>
-                <Link to={'/update-product'}>
-                    <button className="btn btn-error">Update</button>
-                </Link>
-              </div>
-            </div>
-          </div>
+        <div className="grid grid-cols-1 sm:grid-cols-4 gap-5 max-w-7xl mx-auto">
+        {
+          brandData?.map(item=><BrandDetailcard key={item._id} brandss={item}></BrandDetailcard>)
+        }
         </div>
+
+
+
       </div>
     </>
   );

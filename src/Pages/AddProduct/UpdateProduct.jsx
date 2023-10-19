@@ -1,7 +1,33 @@
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
 
 const UpdateProduct = () => {
+  const updateData=useLoaderData()
+  console.log(updateData);
+  const {productName,price,productType,image,rating,brand,detail,_id}= updateData || {}
+  console.log(_id);
     const handleSubmit=e=>{
+      e.preventDefault()
+      const productName=e.target.productName.value;
+        const price=e.target.price.value;
+        const productType=e.target.type.value;
+        const image=e.target.image.value;
+        const rating=e.target.rating.value;
+        const brand=e.target.brand.value;
+        const detail=e.target.detail.value;
+        const updatedProduct={productName,price,productType,image,rating,brand,detail}
+        fetch(`http://localhost:5000/products/${_id}` ,{
+            method: 'PUT',
+            headers:{
+              'content-type':'application/json'
+            },
+            body: JSON.stringify(updatedProduct)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+          console.log(data);
+        })
+
 
     }
 
@@ -12,7 +38,7 @@ const UpdateProduct = () => {
          
         <div className="">
           <h2 className="mb-4 sm:text-4xl text-3xl tracking-tight font-extrabold text-center ">
-             Update 
+             Update {productName}
           </h2>
           <p className="font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">
             Feel Free To Contact Us NOW! Plan Your Event With Our Premium
@@ -33,6 +59,7 @@ const UpdateProduct = () => {
                     <input
                       type="text"
                       id="subject"
+                      defaultValue={productName}
                       className="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                       placeholder="Product Name"
                       name='productName'
@@ -49,6 +76,7 @@ const UpdateProduct = () => {
                     </label>
                     <input
                       type="text"
+                      defaultValue={price}
                       id="email"
                       className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                       placeholder="Brand Name"
@@ -70,6 +98,7 @@ const UpdateProduct = () => {
                     <input
                       type="text"
                       id="subject"
+                      defaultValue={productType}
                       className="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                       placeholder="Phone/Tv/Monitor"
                       name='type'
@@ -87,6 +116,7 @@ const UpdateProduct = () => {
                     <input
                       type="text"
                       id="email"
+                      defaultValue={image}
                       className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                       placeholder="Image url"
                       name='image'
@@ -107,6 +137,7 @@ const UpdateProduct = () => {
                     <input
                       type="text"
                       id="subject"
+                      defaultValue={rating}
                       className="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                       placeholder="product rating"
                       name='rating'
@@ -127,9 +158,11 @@ const UpdateProduct = () => {
                   </label>
                   <select
                     id="countries"
+                    name='brand'
+                    defaultValue={brand}
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   >
-                    <option selected>Choose Your Product Brand</option>
+                    <option selected  >Choose Your Product Brand </option>
                     <option value="apple">Apple</option>
                     <option value="samsung">Samsung</option>
                     <option value="xiomi">
@@ -160,6 +193,8 @@ const UpdateProduct = () => {
                     <textarea
                       id="message"
                       rows="6"
+                      name='detail'
+                      defaultValue={detail}
                       className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                       placeholder="Enter your product detail . Word limit 200 word "
                     ></textarea>

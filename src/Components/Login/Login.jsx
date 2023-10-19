@@ -1,13 +1,43 @@
-import React, { useState } from "react";
-import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import React, { useContext, useState } from "react";
+import { AiFillAlert, AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import logImg from '/src/assets/login.jpg'
+import { AuthContext } from "../../Authentication/Auth";
 
 
 const Login = () => {
-
     const [show,setShow]=useState(false)
+    const [error,setError]=useState('')
+    const {googleSignIn,emailLogIn}=useContext(AuthContext)
+    const handleSignin=e=>{
+      e.preventDefault()
+      const email=e.target.email.value;
+      const password= e.target.password.value;
+      console.log(email,password);
+      emailLogIn(email,password)
+      .then(result=>{
+        console.log(result.user);
+        alert('loged in successfully')
+        e.target.reset()
+      })
+      .catch(error=>{
+        console.log(error.message);
+        setError(error.message)
+      })
+      
+    }
+
+    const handleGoogleSignin=()=>{
+      googleSignIn()
+      .then(result=>{
+        console.log(result.user);
+      })
+      .catch(error=>{
+        console.log(error.message);
+      })
+    }
+
   return (
     <>
       <h1 className="text-2xl text-center font-bold my-10">
@@ -24,7 +54,7 @@ const Login = () => {
           {/* google login */}
           <div className="flex flex-col gap-5 items-center justify-center">
             <div>
-              <button className="btn">
+              <button onClick={handleGoogleSignin} className="btn">
                 <FcGoogle className="text-2xl"></FcGoogle>Continue With Google
               </button>
             </div>
@@ -38,10 +68,10 @@ const Login = () => {
           <div className="px-6 py-2 lg:py-0">
             <div className="">
               <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-                <form className="space-y-4 md:space-y-6" >
+                <form onSubmit={handleSignin} className="space-y-4 md:space-y-6" >
                   <div>
                     <label
-                      for="email"
+                       
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >
                       Your email
@@ -55,9 +85,9 @@ const Login = () => {
                       required
                     />
                   </div>
-                  <div className="relative">
+                  <div className="relative z-10">
                     <label
-                      for="password"
+                       
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >
                       Password
@@ -104,11 +134,11 @@ const Login = () => {
                     </Link>
                   </p>
                 </form>
-                {/* {error && (
+                {error && (
                   <p className="bg-red-500 py-1 rounded-lg px-3 text-white">
                     {error}
                   </p>
-                )} */}
+                )}
               </div>
             </div>
           </div>
