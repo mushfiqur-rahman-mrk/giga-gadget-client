@@ -7,15 +7,18 @@ import Special from '../../Components/Special/Special';
 import BrandCategory from '../../Components/BrandCategory/BrandCategory';
 import Featured from '../../Components/Featured/Featured';
 import Slider from '../../Components/Banner/Slider';
+import Rough from '../../Components/BrandCategory/Rough';
 
 const Home = () => {
     return (
         <>
-            <div className='dark:bg-slate-500'>
-            <Slider></Slider>
+            <div className='dark:bg-[#141b2f]'>
+            {/* <Slider></Slider> */}
+            <Banner></Banner>
             <Special></Special>
             <BrandCategory></BrandCategory>
             <Featured></Featured>
+            <Rough></Rough>
             <OurApp></OurApp>    
                 
             </div> 

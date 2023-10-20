@@ -8,14 +8,13 @@ const FeaturedCard = ({product}) => {
     return (
         <>
              
-        <div className="card card-compact bg-base-100 shadow-xl">
+        <div className="card card-compact bg-base-100 shadow-xl dark:bg-slate-800">
           <figure>
             <img src={image} alt="Shoes" />
           </figure>
           <div className="card-body">
-            <p className="">{productType}</p>
-            <h2 className="card-title">{productName}</h2>
-            <p>{rating}</p>
+            <p className="dark:text-white">{productType}</p>
+            <h2 className="card-title dark:text-white">{productName}</h2>
             <Rating
                     emptySymbol={
                     <svg
@@ -48,10 +47,10 @@ const FeaturedCard = ({product}) => {
                     initialRating={rating} readonly
                     
                     />
-            <p>{price}</p>
+            <p className='dark:text-white'>Price: $ {price}</p>
             <div className="card-actions justify-center">
               <Link to={`/product-detail/${_id}`}>
-                <button className="btn btn-primary">Show Detail</button>
+                <button className="btn bg-cyan-500 dark:bg-blue-500 dark:text-white border-none">Show Detail</button>
               </Link>
             </div>
           </div>

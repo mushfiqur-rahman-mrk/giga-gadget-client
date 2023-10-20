@@ -7,7 +7,7 @@ const Bcard = ({ category }) => {
   return (
     <>
      
-      <div className=" border">
+      <div className=" border bg-white">
         <Link to={`/brand-detail/${brand_name}`}>
         <div className="flex relative">
           <img
