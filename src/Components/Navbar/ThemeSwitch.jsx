@@ -20,10 +20,10 @@ const ThemeSwitch = () => {
           className='sr-only'
         />
          
-        <div className='shadow-card border flex h-[46px] w-[82px] items-center justify-center rounded-md bg-white'>
+        <div className='shadow-card flex h-[46px] w-[82px] items-center justify-center rounded-md bg-white dark:bg-slate-700'>
           <span
-            className={`flex h-9 w-9 items-center justify-center rounded ${
-              !isChecked ? 'bg-primary text-white' : 'text-body-color'
+            className={`flex h-9 w-9 items-center justify-center rounded-full ${
+              !isChecked ? 'bg-cyan-500 text-black' : 'text-body-color text-black dark:text-white'
             }`}
           >
             <svg
@@ -49,8 +49,8 @@ const ThemeSwitch = () => {
             </svg>
           </span>
           <span
-            className={`flex h-9 w-9 items-center justify-center rounded ${
-              isChecked ? 'bg-primary text-white' : 'text-body-color'
+            className={`flex h-9 w-9 items-center justify-center rounded-full ${
+              isChecked ? 'bg-blue-500 text-white' : 'text-body-color dark:text-white text-black'
             }`}
           >
             <svg

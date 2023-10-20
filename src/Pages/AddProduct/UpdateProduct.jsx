@@ -206,7 +206,7 @@ const UpdateProduct = () => {
                   </div>
 
                  
-                  <button  className="px-5 w-full text-white font-semibold bg-gradient-to-r from-orange-500 to-red-600  hover:ease-in py-3 transition duration-150 hover:text-black rounded-xl shadow-lg mx-auto md:w-1/2 ">Submit</button>
+                  <button  className="px-5 w-full text-white font-semibold bg-gradient-to-r from-cyan-500 to-blue-500  hover:ease-in py-3 transition duration-150 hover:text-black rounded-xl shadow-lg mx-auto md:w-1/2 ">Submit</button>
                 </form>
                 
               </div>

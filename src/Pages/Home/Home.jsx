@@ -18,7 +18,7 @@ const Home = () => {
             <Special></Special>
             <BrandCategory></BrandCategory>
             <Featured></Featured>
-            <Rough></Rough>
+             
             <OurApp></OurApp>    
                 
             </div> 

@@ -38,10 +38,7 @@ const Addproduct = () => {
           <h2 className="mb-4 sm:text-4xl text-3xl tracking-tight font-extrabold text-center ">
             Let's Add Some New Product
           </h2>
-          <p className="font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">
-            Feel Free To Contact Us NOW! Plan Your Event With Our Premium
-            Consultation And It's Free!
-          </p>
+           
           <div>
             <div className="bg-gray-200 mt-5 rounded-xl shadow-lg">
               <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
@@ -193,7 +190,7 @@ const Addproduct = () => {
                   </div>
 
                  
-                  <button  className="px-5 w-full text-white font-semibold bg-gradient-to-r from-orange-500 to-red-600  hover:ease-in py-3 transition duration-150 hover:text-black rounded-xl shadow-lg mx-auto md:w-1/2 ">Submit</button>
+                  <button  className="px-5 w-full text-white font-semibold bg-gradient-to-r from-cyan-500 to-blue-500 hover:ease-in py-3 transition duration-150 hover:text-black rounded-xl shadow-lg mx-auto md:w-1/2 ">Submit</button>
                 </form>
                 
               </div>

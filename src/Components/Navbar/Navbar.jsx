@@ -6,7 +6,7 @@ const Navbar = () => {
     return (
         <>
             
-            <div className='border'>
+            <div className=''>
             <Topbar></Topbar>  
             </div> 
             <Mobilenav></Mobilenav>
