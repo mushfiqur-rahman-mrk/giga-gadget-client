@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import swal from 'sweetalert';
 
 const UpdateProduct = () => {
   const updateData=useLoaderData()
@@ -18,7 +19,7 @@ const UpdateProduct = () => {
       const detail=e.target.detail.value;
       const updatedProduct={productName,price,productType,image,rating,brand,detail}
       // send data to backend
-      fetch(`http://localhost:5000/products/${_id}`,{
+      fetch(`https://giga-gadget-server.vercel.app/products/${_id}`,{
         method: 'PUT',
         headers:{
           'content-type':'application/json'
@@ -28,8 +29,9 @@ const UpdateProduct = () => {
       .then(res=>res.json())
       .then(data=>{
         console.log(data);
+        swal(`${productName}`, "Product updated successfully", "success");
       })
-
+      
 
     }
 
@@ -161,20 +163,21 @@ const UpdateProduct = () => {
                   <select
                     id="countries"
                     name='brand'
+                    required
                     defaultValue={brand}
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   >
-                    <option selected  >Choose Your Product Brand </option>
-                    <option value="apple">Apple</option>
-                    <option value="samsung">Samsung</option>
-                    <option value="xiomi">
+                    <option selected value="" >Default value-   {brand} </option>
+                    <option value="Apple">Apple</option>
+                    <option value="Samsung">Samsung</option>
+                    <option value="Xiaomi">
                       Xiomi
                     </option>
-                    <option value="giggabite">
+                    <option value="Gigabite">
                       Giggabite
                     </option>
-                    <option value="asus">Asus</option>
-                    <option value="sony">Sony</option>
+                    <option value="Asus">Asus</option>
+                    <option value="Sony">Sony</option>
                      
                      
                   </select>

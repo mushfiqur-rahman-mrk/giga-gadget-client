@@ -15,7 +15,7 @@ const BrandDetailcard = ({brandss}) => {
           <div className="card-body">
             <p className="">{productType}</p>
             <h2 className="card-title">{productName}</h2>
-            <p>{rating}</p>
+            {/* <p>{rating}</p> */}
             <Rating
                     emptySymbol={
                     <svg
@@ -48,7 +48,7 @@ const BrandDetailcard = ({brandss}) => {
                     initialRating={rating} readonly
                     
                     />
-            <p>{price}</p>
+            <p>Price: ${price}</p>
             <div className="card-actions justify-center">
               <Link to={`/product-detail/${_id}`}>
                 <button className="btn btn-primary">Show Detail</button>

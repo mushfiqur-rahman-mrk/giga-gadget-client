@@ -5,13 +5,18 @@ import BrandDetailcard from "./BrandDetailcard";
 
 const BrandDetail = () => {
   const [category,setCategory]=useState();
+  const [data,setData]=useState([])
   const params= useParams()
   // const brands=params.brand
-  const data=useLoaderData()
-  console.log(data);
+  const allData=useLoaderData()
+  console.log(allData);
   // const filteredItems = items.filter(item => item.category === filterCategory);
-  const brandData=data.filter(item=> item.brand === params.brand )
-console.log(brandData);
+  console.log(data);
+  useEffect(()=>{
+    const brandData=allData.filter(item=> item.brand === params.brand )
+    setData(brandData)
+  },[allData,params.brand])
+// console.log(brandData);
   return (
     <>
     <div>
@@ -58,12 +63,20 @@ console.log(brandData);
 
 
       <div>
-        <h1 className="text-center font-extrabold text-2xl">Brand Name</h1>
+        <h1 className="text-center font-extrabold text-2xl mt-10">Brand Name</h1>
         <hr className="w-20 h-1 bg-black mx-auto mt-2 rounded-full"></hr>
 
-        <div className="grid grid-cols-1 sm:grid-cols-4 gap-5 max-w-7xl mx-auto">
+        <div>
         {
-          brandData?.map(item=><BrandDetailcard key={item._id} brandss={item}></BrandDetailcard>)
+          data.length >0 ? <>
+              <div className="grid grid-cols-1 sm:grid-cols-4 gap-5 max-w-6xl px-5 mx-auto">
+                  {
+                    data?.map(item=><BrandDetailcard key={item._id} brandss={item}></BrandDetailcard>)
+                  }
+              </div>
+          </> 
+          :
+          <h1 className="h-[50vh] w-full flex justify-center items-center text-2xl font-extrabold">No Product Available</h1>
         }
         </div>
 

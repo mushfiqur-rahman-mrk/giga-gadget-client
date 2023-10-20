@@ -1,6 +1,7 @@
 import React from 'react';
 import Rating from "react-rating";
 import { useLoaderData } from 'react-router-dom';
+import swal from 'sweetalert';
 
 const ProductDetail = () => {
 
@@ -10,13 +11,14 @@ const ProductDetail = () => {
 
   const addtoCart=()=>{
       // send data to server
-      fetch('http://localhost:5000/cart-item',{
+      fetch('https://giga-gadget-server.vercel.app/cart-item',{
         method:'POST',
         headers:{
           'content-type':'application/json'
         },
         body: JSON.stringify(data)
       })
+      swal("", `${productName} added to your cart`, "success");
   }
 
 

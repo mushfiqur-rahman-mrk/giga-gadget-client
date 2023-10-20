@@ -31,23 +31,23 @@ import PrivetRoute from "./PrivetRoute";
         {
           path:'/my-cart',
           element: <PrivetRoute><Mycart></Mycart></PrivetRoute>,
-          loader: ()=>fetch('http://localhost:5000/cart-item')
+          loader: ()=>fetch('https://giga-gadget-server.vercel.app/cart-item')
         },
         {
           path:'/update-product/:id',
           element: <PrivetRoute><UpdateProduct></UpdateProduct></PrivetRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/products/${params.id}`)
+          loader: ({params}) => fetch(`https://giga-gadget-server.vercel.app/products/${params.id}`)
         },
         {
           path: '/brand-detail/:brand',
           element: <BrandDetail></BrandDetail>,
-          loader: ({params})=>fetch(`http://localhost:5000/products`)
+          loader: ({params})=>fetch(`https://giga-gadget-server.vercel.app/products`)
           
         },
         {
           path: '/product-detail/:id',
           element: <PrivetRoute><ProductDetail></ProductDetail></PrivetRoute>,
-          loader:({params})=>fetch(`http://localhost:5000/products/${params.id}`)
+          loader:({params})=>fetch(`https://giga-gadget-server.vercel.app/products/${params.id}`)
         },
         
         {

@@ -17,7 +17,7 @@ const Mcard = ({ cartItem }) => {
           }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/cart-item/${id}`,{
+                fetch(`https://giga-gadget-server.vercel.app/cart-item/${id}`,{
                     method: 'DELETE',
                 })
                 .then(res=>res.json())

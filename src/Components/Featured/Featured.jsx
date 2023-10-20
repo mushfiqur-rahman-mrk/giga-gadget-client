@@ -5,7 +5,7 @@ const Featured = () => {
     const [products,setProdcts]=useState([])
 
     useEffect(()=>{
-        fetch('http://localhost:5000/products')
+        fetch('https://giga-gadget-server.vercel.app/products')
         .then(res=>res.json())
         .then(data=>setProdcts(data))
     },[])

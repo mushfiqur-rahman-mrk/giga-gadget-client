@@ -6,7 +6,7 @@ const Mycart = () => {
   const cartItems=useLoaderData()
 
   return (
-    <div className="max-w-6xl mx-auto px-8 h-screen">
+    <div className="max-w-6xl mx-auto px-8 ">
        {
         cartItems.length > 0 ? cartItems?.map(cartItem=><Mcard cartItem={cartItem} key={cartItem._id}></Mcard>)
         :

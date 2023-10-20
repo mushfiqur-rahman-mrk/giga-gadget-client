@@ -1,4 +1,5 @@
 import React from 'react';
+import swal from 'sweetalert';
 
 const Addproduct = () => {
     const handleSubmit=e=>{
@@ -13,7 +14,7 @@ const Addproduct = () => {
         const newProduct={productName,price,productType,image,rating,brand,detail}
         console.log(newProduct);
         console.log(productName,price,productType,image,rating,brand,detail);
-        fetch('http://localhost:5000/products',{
+        fetch('https://giga-gadget-server.vercel.app/products',{
             method: 'POST',
             headers:{
               'content-type':'application/json'
@@ -23,9 +24,10 @@ const Addproduct = () => {
         .then(res=>res.json())
         .then(data=>{
           console.log(data);
-          alert('product added successfully')
+          swal("Added Successfully", `${productName}`, "success");
           e.target.reset()
         })
+        
     }
     return (
         <>
@@ -150,9 +152,10 @@ const Addproduct = () => {
                   <select
                     id="countries"
                     name='brand'
+                    required
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   >
-                    <option selected>Choose Your Product Brand</option>
+                    <option selected value="">Choose Your Product Brand</option>
                     <option value="Apple">Apple</option>
                     <option value="Samsung">Samsung</option>
                     <option value="Xiaomi">
