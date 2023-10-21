@@ -35,7 +35,7 @@ const Topbar = () => {
               type="text"
               placeholder="Search by category..."
             />
-            <button className="px-2 py-1 bg-cyan-500 dark:bg-blue-500 dark:text-white rounded-lg ml-2">Search</button>
+            <button className="px-2 py-1 bg-cyan-500 dark:bg-blue-500 text-white dark:text-white rounded-lg ml-2">Search</button>
           </div>
         </div>
         <div className="navbar-end">
@@ -77,11 +77,11 @@ const Topbar = () => {
           <div className="dropdown dropdown-bottom dropdown-end">
             {
               user ? <div onClick={handleLogout}>
-              <button className="px-2 py-1 bg-cyan-500 dark:bg-blue-500 dark:text-white rounded-lg ml-2">Log out</button>
+              <button className="px-2 py-1 bg-cyan-500 dark:bg-blue-500 text-white dark:text-white rounded-lg ml-2">Log out</button>
             </div>
             :
-            <Link to={'/signup'}>
-              <button className="px-2 py-1 bg-cyan-500 dark:bg-blue-500 dark:text-white rounded-lg ml-2">Log in</button>
+            <Link to={'/login'}>
+              <button className="px-2 py-1 bg-cyan-500 dark:bg-blue-500 text-white dark:text-white rounded-lg ml-2">Log in</button>
             </Link>
 
             }

@@ -38,7 +38,7 @@ const Mcard = ({ cartItem }) => {
 
   return (
     <div>
-      <div className="md:flex shadow-lg mt-10 items-strech py-8 md:py-10 lg:py-8 border-t border-gray-50 border">
+      <div className="md:flex shadow-lg mt-10 items-strech py-8 md:py-10 lg:py-8 border-t border-gray-50 border p-3">
         <div className="md:w-4/12 2xl:w-1/4 w-full">
           <img
             src={image}

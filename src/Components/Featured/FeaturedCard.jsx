@@ -50,7 +50,7 @@ const FeaturedCard = ({product}) => {
             <p className='dark:text-white font-semibold'>Price: $ {price}</p>
             <div className="card-actions justify-center">
               <Link to={`/product-detail/${_id}`}>
-                <button className="px-3 py-2 rounded-xl font-semibold bg-cyan-500 dark:bg-blue-500 dark:text-white border-none">Show Detail</button>
+                <button className="px-3 py-2 rounded-xl font-semibold bg-cyan-500 text-white dark:bg-blue-500 dark:text-white border-none">Show Detail</button>
               </Link>
             </div>
           </div>
