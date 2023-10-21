@@ -1,4 +1,6 @@
-import React from "react";
+ 
+ 
+import img from '/src/assets/z590 auras.jpg';
 
 const Banner = () => {
   return (
@@ -12,7 +14,8 @@ const Banner = () => {
             </div>
           <div className="bg-gradient-to-r from-cyan-500 to-blue-500 rounded-bl-[200px]">
           <img
-            src="/src/assets/z590 auras.jpg"
+            src={img}
+           
             className="mx-auto"
           />
           </div>

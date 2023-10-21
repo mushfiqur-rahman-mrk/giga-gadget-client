@@ -9,8 +9,8 @@ const BrandDetailcard = ({brandss}) => {
     <>
       <div className="my-10 rounded-xl">
         <div className="card card-compact bg-base-100 shadow-xl">
-          <figure className="p-5 h-40">
-            <img src={image} alt="Shoes" className="" />
+          <figure className="">
+            <img src={image} alt="Shoes" className="h-60 object-cover pb-2" />
           </figure>
           <div className="card-body  h-60 bg-slate-200 rounded-b-lg rounded-tr-[50px]">
             <p className="">{productType}</p>

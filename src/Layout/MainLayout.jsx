@@ -13,8 +13,8 @@ const MainLayout = () => {
             <MutatingDots 
             height="100"
             width="100"
-            color="#4fa94d"
-            secondaryColor= '#4fa94d'
+            color="#43c6ac"
+            secondaryColor= '#43c6ac'
             radius='12.5'
             ariaLabel="mutating-dots-loading"
             wrapperStyle={{}}

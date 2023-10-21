@@ -1,10 +1,10 @@
 import  { useContext } from "react";
 import ThemeSwitch from "./ThemeSwitch";
-import logo from '/src/assets/logo.jpg'
 import { Link} from "react-router-dom";
 import { AuthContext } from "../../Authentication/Auth";
 import swal from "sweetalert";
 import logo1 from '/src/assets/footer-logo.png'
+import userimg from "/public/user.png"
 
 const Topbar = () => {
   const {user,logOut}=useContext(AuthContext)
@@ -53,7 +53,7 @@ const Topbar = () => {
             {
                 user?.photoURL ? <img className="rounded-full w-10 h-10" src={user.photoURL} alt="" />
                 :
-                <img src="/public/user.png" className="w-10 h-10 rounded-full" alt="" />
+                <img src={userimg} className="w-10 h-10 rounded-full" alt="" />
               }
              
             </label>
