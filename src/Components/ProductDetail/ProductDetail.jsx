@@ -70,10 +70,11 @@ const ProductDetail = () => {
         </div>
 
         <p className="leading-relaxed">{detail}</p>
-        <p className="title-font font-medium text-2xl text-gray-900">$ {price}</p>
+        <p className="title-font font-medium text-2xl text-gray-900 py-5">$ {price}</p>
         <div className="flex">
           
-          <button onClick={addtoCart} className="w-full text-center text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Add to Cart</button>
+          <button onClick={addtoCart} className="w-full text-center text-white bg-gradient-to-r from-cyan-500 to-blue-500 
+          border-0 py-2 px-6 focus:outline-none rounded">Add to Cart</button>
         </div>
       </div>
     </div>

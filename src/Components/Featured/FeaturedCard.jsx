@@ -8,11 +8,11 @@ const FeaturedCard = ({product}) => {
     return (
         <>
              
-        <div className="card card-compact bg-base-100 shadow-xl dark:bg-slate-800">
-          <figure>
-            <img src={image} alt="Shoes" />
+        <div className="card card-compact  bg-white shadow-xl">
+          <figure className='bg-white'>
+            <img src={image} alt="Shoes" className='h-60 object-cover' />
           </figure>
-          <div className="card-body">
+          <div className="card-body bg-slate-200 dark:bg-slate-600 rounded-b-lg rounded-tr-[50px] h-60">
             <p className="dark:text-white">{productType}</p>
             <h2 className="card-title dark:text-white">{productName}</h2>
             <Rating
@@ -47,10 +47,10 @@ const FeaturedCard = ({product}) => {
                     initialRating={rating} readonly
                     
                     />
-            <p className='dark:text-white'>Price: $ {price}</p>
+            <p className='dark:text-white font-semibold'>Price: $ {price}</p>
             <div className="card-actions justify-center">
               <Link to={`/product-detail/${_id}`}>
-                <button className="btn bg-cyan-500 dark:bg-blue-500 dark:text-white border-none">Show Detail</button>
+                <button className="px-3 py-2 rounded-xl font-semibold bg-cyan-500 dark:bg-blue-500 dark:text-white border-none">Show Detail</button>
               </Link>
             </div>
           </div>

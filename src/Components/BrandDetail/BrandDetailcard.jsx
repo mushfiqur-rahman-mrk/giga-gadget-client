@@ -7,12 +7,12 @@ const BrandDetailcard = ({brandss}) => {
     const {_id,brand,detail,image,price,productName,rating,productType}=brandss || {}
   return (
     <>
-      <div className="my-10">
+      <div className="my-10 rounded-xl">
         <div className="card card-compact bg-base-100 shadow-xl">
-          <figure>
-            <img src={image} alt="Shoes" />
+          <figure className="p-5 h-40">
+            <img src={image} alt="Shoes" className="" />
           </figure>
-          <div className="card-body">
+          <div className="card-body  h-60 bg-slate-200 rounded-b-lg rounded-tr-[50px]">
             <p className="">{productType}</p>
             <h2 className="card-title">{productName}</h2>
             {/* <p>{rating}</p> */}
@@ -48,13 +48,13 @@ const BrandDetailcard = ({brandss}) => {
                     initialRating={rating} readonly
                     
                     />
-            <p>Price: ${price}</p>
+            <p className="text-black font-semibold">Price: ${price}</p>
             <div className="card-actions justify-center">
               <Link to={`/product-detail/${_id}`}>
-                <button className="btn btn-primary">Show Detail</button>
+                <button className="px-3 py-2  rounded-xl bg-cyan-500 font-semibold">Show Detail</button>
               </Link>
               <Link to={`/update-product/${_id}`}>
-                <button className="btn btn-error">Update</button>
+                <button className=" px-3 py-2  rounded-xl bg-orange-500 font-semibold">Update</button>
               </Link>
             </div>
           </div>

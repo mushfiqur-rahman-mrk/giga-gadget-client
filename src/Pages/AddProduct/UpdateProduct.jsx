@@ -44,10 +44,7 @@ const UpdateProduct = () => {
           <h2 className="mb-4 sm:text-4xl text-3xl tracking-tight font-extrabold text-center ">
              Update {productName}
           </h2>
-          <p className="font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">
-            Feel Free To Contact Us NOW! Plan Your Event With Our Premium
-            Consultation And It's Free!
-          </p>
+           
           <div>
             <div className="bg-gray-200 mt-5 rounded-xl shadow-lg">
               <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">

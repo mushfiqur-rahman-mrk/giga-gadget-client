@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import BrandDetailcard from "./BrandDetailcard";
 import slider1 from "/src/assets/offer 1.jpg"
+import slider2 from "/src/assets/offers2.jpg"
+import slider3 from "/src/assets/offer3.jpg"
 
 const BrandDetail = () => {
   const [category,setCategory]=useState();
@@ -24,7 +26,7 @@ const BrandDetail = () => {
     <div className="carousel w-full">
         <div id="item1" className="carousel-item w-full">
         <img
-            src="/src/assets/offer 1.jpg"
+            src={slider1}
             className="w-full"
           />
            
@@ -32,14 +34,14 @@ const BrandDetail = () => {
 
         <div id="item2" className="carousel-item w-full">
           <img
-            src="/src/assets/offers2.jpg.jpg"
+            src={slider2}
             className="w-full"
           />
         </div>
 
         <div id="item3" className="carousel-item w-full">
           <img
-            src="/src/assets/offer3.jpg"
+            src={slider3}
             className="w-full"
           />
         </div>
@@ -64,7 +66,7 @@ const BrandDetail = () => {
 
 
       <div>
-        <h1 className="text-center font-extrabold text-2xl mt-10">Brand Name</h1>
+        <h1 className="text-center font-extrabold text-2xl mt-10">All Products</h1>
         <hr className="w-20 h-1 bg-black mx-auto mt-2 rounded-full"></hr>
 
         <div>
