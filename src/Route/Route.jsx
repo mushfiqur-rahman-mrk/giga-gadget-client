@@ -18,7 +18,7 @@ import PrivetRoute from "./PrivetRoute";
     {
       path: "/",
       element: <MainLayout></MainLayout>,
-      // errorElement:<Error></Error>,
+      errorElement:<Error></Error>,
       children:[
         {
             path:'/',

@@ -4,10 +4,10 @@ const Scards = () => {
   return (
     <div>
       <section className="text-gray-600 body-font">
-        <div className="container px-5 py-10 mx-auto">
+        <div className="container px-5 py-5 mx-auto">
         
-          <div className="flex flex-wrap max-w-5xl mx-auto text-center">
-            <div className="p-4 md:w-1/4 sm:w-1/2 w-full">
+          <div className="grid grid-cols-2 lg:grid-cols-4 max-w-5xl mx-auto text-center">
+            <div className="p-2  w-full">
               <div className="border-2 border-gray-200 px-4 py-6 rounded-lg">
                 <svg
                   fill="none"
@@ -27,7 +27,7 @@ const Scards = () => {
                  
               </div>
             </div>
-            <div className="p-4 md:w-1/4 sm:w-1/2 w-full">
+            <div className="p-4  w-full">
               <div className="border-2 border-gray-200 px-4 py-6 rounded-lg">
                 <svg
                   fill="none"
@@ -48,7 +48,7 @@ const Scards = () => {
                  
               </div>
             </div>
-            <div className="p-4 md:w-1/4 sm:w-1/2 w-full">
+            <div className="p-4  w-full">
               <div className="border-2 border-gray-200 px-4 py-6 rounded-lg">
                 <svg
                   fill="none"
@@ -68,7 +68,7 @@ const Scards = () => {
                  
               </div>
             </div>
-            <div className="p-4 md:w-1/4 sm:w-1/2 w-full">
+            <div className="p-4   w-full">
               <div className="border-2 border-gray-200 px-4 py-6 rounded-lg">
                 <svg
                   fill="none"

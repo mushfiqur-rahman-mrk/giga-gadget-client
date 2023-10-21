@@ -4,6 +4,7 @@ import logo from '/src/assets/logo.jpg'
 import { Link} from "react-router-dom";
 import { AuthContext } from "../../Authentication/Auth";
 import swal from "sweetalert";
+import logo1 from '/src/assets/footer-logo.png'
 
 const Topbar = () => {
   const {user,logOut}=useContext(AuthContext)
@@ -24,7 +25,7 @@ const Topbar = () => {
         <div className="navbar-start">
            
           {/* <a className="btn btn-ghost normal-case text-xl">GG</a> */}
-          <img src={logo} className="h-14 " alt="" />
+          <img src={logo1} className="h-14 " alt="" />
           {/* <img src="/src/assets/logo.jpg" alt="" /> */}
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -44,15 +45,16 @@ const Topbar = () => {
         <div>
         {
           user ? <>
+          
           <div className="dropdown dropdown-end">
           <label tabIndex={0} className="m-1 w-10 h-10">
-          <img className="rounded-full" src={user.photoURL} alt="" />
+          {/* <img className="rounded-full" src={user.photoURL} alt="" /> */}
             
-            {/* {
-                user?.photoURL ? <img className="rounded-full" src={user.photoURL} alt="" />
+            {
+                user?.photoURL ? <img className="rounded-full w-10 h-10" src={user.photoURL} alt="" />
                 :
-                <img src="/public/user.png" className="w-10 h-10" alt="" />
-              } */}
+                <img src="/public/user.png" className="w-10 h-10 rounded-full" alt="" />
+              }
              
             </label>
            

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 // import Card from "../BrandCategory/Card";
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import BrandDetailcard from "./BrandDetailcard";
+import slider1 from "/src/assets/offer 1.jpg"
 
 const BrandDetail = () => {
   const [category,setCategory]=useState();
@@ -22,27 +23,29 @@ const BrandDetail = () => {
     <div>
     <div className="carousel w-full">
         <div id="item1" className="carousel-item w-full">
+        <img
+            src="/src/assets/offer 1.jpg"
+            className="w-full"
+          />
            
-          <div className="bg-cyan-500 w-full h-[30vh]"></div>
         </div>
+
         <div id="item2" className="carousel-item w-full">
           <img
-            src="/images/stock/photo-1609621838510-5ad474b7d25d.jpg"
+            src="/src/assets/offers2.jpg.jpg"
             className="w-full"
           />
         </div>
+
         <div id="item3" className="carousel-item w-full">
           <img
-            src="/images/stock/photo-1414694762283-acccc27bca85.jpg"
+            src="/src/assets/offer3.jpg"
             className="w-full"
           />
         </div>
-        <div id="item4" className="carousel-item w-full">
-          <img
-            src="/images/stock/photo-1665553365602-b2fb8e5d1707.jpg"
-            className="w-full"
-          />
-        </div>
+
+         
+
       </div>
       <div className="flex justify-center w-full py-2 gap-2">
         <a href="#item1" className="btn btn-xs">
@@ -54,9 +57,7 @@ const BrandDetail = () => {
         <a href="#item3" className="btn btn-xs">
           3
         </a>
-        <a href="#item4" className="btn btn-xs">
-          4
-        </a>
+         
       </div>
     </div>
 

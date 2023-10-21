@@ -5,6 +5,8 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import logo from '/src/assets/footer-logo.png'
 import { AuthContext } from '../../Authentication/Auth';
 import swal from 'sweetalert';
+import logo1 from '/src/assets/logo.jpg'
+
 const Mobilenav = () => {
   const {user,logOut}=useContext(AuthContext)
   const [open,setOpen]=useState(false)
@@ -17,12 +19,6 @@ const Mobilenav = () => {
     .catch(error=>console.log(error))
   }
 
-
-
-
-
-
-
   const navLinks =<>
   <li className="font-semibold text-md dark:text-white"><NavLink to="/" className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? "text-red-500 underline " : ""}>Home</NavLink></li>
   <li className="font-semibold text-md dark:text-white"><NavLink to="/add-product" className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? "text-red-500 underline " : ""}>Add product</NavLink></li>
@@ -34,7 +30,8 @@ const Mobilenav = () => {
         <>
             <nav className='flex justify-between shadow-lg  items-center p-4 dark:bg-slate-700'>
               <div>
-                  <h1 className='sm:hidden'>logo</h1>
+                  {/* <h1 className='sm:hidden'>logo</h1> */}
+                  <img src={logo} className="h-14 sm:hidden " alt="" />
               </div>
               <div className='hidden sm:block'>
                   <ul className='flex gap-5'>
@@ -44,14 +41,16 @@ const Mobilenav = () => {
               <div className='flex items-center gap-5'>
                   <div className='sm:hidden'><ThemeSwitch></ThemeSwitch></div>
 
+                <div className='sm:hidden'>
+
                 {
                   user ? <><div className="dropdown dropdown-end">
                   <label tabIndex={0} className="">
                     
                     {
-                        user?.photoURL ? <img className="rounded-full" src={user.photoURL} alt="" />
+                        user?.photoURL ? <img className="rounded-full w-10 h-10" src={user.photoURL} alt="" />
                         :
-                        <img src="/public/user.png" className="w-10 h-10" alt="" />
+                        <img src="/public/user.png" className="w-10 h-10 rounded-full" alt="" />
                       }
                     
                     </label>
@@ -65,12 +64,8 @@ const Mobilenav = () => {
                 :
                  ''
                 }
-                  
-
-
-
-
-
+                </div>
+   
                   <div className="md:hidden text-xl" onClick={() => setOpen(!open)}>
                       {open === true ? <FaTimes className='dark:text-white'></FaTimes> : <FaBars className='dark:text-white'></FaBars>}
                   </div>

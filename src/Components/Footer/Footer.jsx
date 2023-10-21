@@ -1,5 +1,6 @@
 import React from 'react';
-import logo from '/src/assets/logo.jpg'
+// import logo from '/src/assets/logo.jpg'
+import logo from '/src/assets/footer-logo.png'
 import { AiFillTwitterCircle} from "react-icons/ai";
 import { BsFacebook,BsYoutube } from "react-icons/bs";
 
